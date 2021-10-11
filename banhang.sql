@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 22, 2021 lúc 06:56 PM
+-- Thời gian đã tạo: Th10 11, 2021 lúc 08:49 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.4.22
 
@@ -62,7 +62,7 @@ CREATE TABLE `cthd` (
   `id_cthd` int(11) NOT NULL,
   `id_hd` int(11) NOT NULL,
   `masp` int(11) NOT NULL,
-  `giaban` float NOT NULL,
+  `giaban` double NOT NULL,
   `soluong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -103,7 +103,7 @@ CREATE TABLE `cthdn` (
   `id_hd` int(11) NOT NULL,
   `masp` int(11) NOT NULL,
   `soluong` int(11) NOT NULL,
-  `dongia` float NOT NULL
+  `dongia` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -362,8 +362,8 @@ CREATE TABLE `sanpham` (
   `anh` varchar(50) NOT NULL,
   `mota` varchar(200) NOT NULL,
   `chitiet` varchar(50) NOT NULL,
-  `giaban` float NOT NULL,
-  `giakm` float NOT NULL,
+  `giaban` double NOT NULL,
+  `giakm` double NOT NULL,
   `maloai` int(11) NOT NULL,
   `mancc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -373,31 +373,31 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`masp`, `tensp`, `anh`, `mota`, `chitiet`, `giaban`, `giakm`, `maloai`, `mancc`) VALUES
-(15, 'Laptop Asus ', '1.webp', 'Laptop mới ', 'Sản phẩm đẹp', 9790000, 9390000, 37, 13),
-(17, 'Laptop Acer Aspire 3 A315 56 37DV', '2.webp', 'Sản phẩm tốt ', 'Laptop mới', 11990000, 10290000, 37, 14),
-(19, 'Laptop ASUS X509JA EJ427T', '3.webp', 'Laptop tốt', 'Laptop mới', 11900000, 10900000, 37, 13),
-(30, 'GVN Titan 10 M', '4.webp', 'Tốt', 'Tốt', 11160000, 9390000, 38, 17),
-(31, 'GVN Assassin M', '5.webp', 'Tốt', 'Tốt', 11470000, 10290000, 38, 15),
-(32, 'GVN Mystic M', '6.webp', 'Tốt', 'Tốt', 12190000, 10690000, 38, 13),
-(33, 'Asus PRIME H310M-CS R2.0 LGA1151v2', '7.webp', 'Tốt', 'Tốt', 1590000, 1390000, 39, 13),
-(34, '(8GB DDR4 1x8G 2666) RAM Kingston HyperX Fury Blac', '8.webp', 'Tốt', 'Tốt', 1090000, 790000, 39, 16),
-(35, 'HDD WD Blue 1TB 7200rpm', '9.webp', 'Tốt', 'Tốt', 1100000, 980000, 39, 16),
-(36, 'Màn hình Philips 223V5LHSB2 22“ Full HD', '10.webp', 'Tốt', 'Tốt', 1990000, 1820000, 40, 18),
-(37, 'Màn hình gương Lenovo ThinkVision S22e-19 22\" VA', '11.webp', 'Tốt', 'Tốt', 2190000, 2100000, 40, 19),
-(38, 'Màn hình ViewSonic VA2261H-2 22\" FHD', '12.webp', 'Tốt', 'Tốt', 2390000, 2050000, 40, 13),
-(39, 'Bộ bàn phím  Newmen T260', '13.webp', 'Tốt', 'Tốt', 280000, 250000, 41, 13),
-(40, 'Bàn phím Gaming DareU LK145 USB', '14.webp', 'Tốt ', 'Tốt', 480000, 340000, 41, 17),
-(41, 'Bàn phím cơ Gaming DAREU EK87 - Black (Multi-LED)', '15.webp', 'Tốt ', 'Tốt', 599000, 0, 41, 13),
-(42, 'Chuột Dare-U LM115G - Pink', '16.webp', 'Tốt ', 'Tốt', 200000, 0, 44, 13),
-(43, 'Chuột Dare-U LM115G Wireless', '17.webp', 'Tốt ', 'Tốt', 200000, 0, 44, 13),
-(44, 'Chuột Durgod M39', '18.webp', 'Tốt ', 'Tốt', 190000, 0, 44, 13),
-(45, 'Tai nghe Zidli ZH 7RB', '19.webp', 'Tốt ', 'Tốt', 490000, 340000, 42, 13),
-(46, 'Tai nghe DareU EH416 RGB', '20.webp', 'Tốt ', 'Tốt', 590000, 350000, 42, 19),
-(47, 'Tai nghe Rapoo VM150 In-ear', '21.webp', 'Tốt ', 'Tốt', 569000, 400000, 42, 17),
-(48, 'Ghế Warrior Raider Series WGC206 Black/Red', '22.webp', 'Tốt ', 'Tốt', 2590000, 2550000, 43, 13),
-(49, 'Ghế Warrior Raider Series WGC206 Black/White', '23.webp', 'Tốt ', 'Tốt', 2550000, 2500000, 43, 15),
-(50, 'Ghế Warrior Raider Series WGC206 Black', '24.webp', 'Tốt ', 'Tốt', 2590000, 2500000, 43, 14),
-(51, 'Laptop Acer Nitro 5', '55.png', 'Tốt ', 'Tốt', 22000000, 21500000, 37, 14);
+(15, 'Laptop Asus ', '1.jpg', 'Laptop mới ', 'Sản phẩm đẹp', 9790000, 9390000, 37, 13),
+(17, 'Laptop Acer Aspire 3 A315 56 37DV', '2.jpg', 'Sản phẩm tốt ', 'Laptop mới', 11990000, 10290000, 37, 14),
+(19, 'Laptop ASUS X509JA EJ427T', '3.jpg', 'Laptop tốt', 'Laptop mới', 11900000, 10900000, 37, 13),
+(30, 'GVN Titan 10 M', '4.jpg', 'Tốt', 'Tốt', 11160000, 9390000, 38, 17),
+(31, 'GVN Assassin M', '5.jpg', 'Tốt', 'Tốt', 11470000, 10290000, 38, 15),
+(32, 'GVN Mystic M', '6.jpg', 'Tốt', 'Tốt', 12190000, 10690000, 38, 13),
+(33, 'Asus PRIME H310M-CS R2.0 LGA1151v2', '7.jpg', 'Tốt', 'Tốt', 1590000, 1390000, 39, 13),
+(34, '(8GB DDR4 1x8G 2666) RAM Kingston HyperX Fury Blac', '8.jpg', 'Tốt', 'Tốt', 1090000, 790000, 39, 16),
+(35, 'HDD WD Blue 1TB 7200rpm', '9.jpg', 'Tốt', 'Tốt', 1100000, 980000, 39, 16),
+(36, 'Màn hình Philips 223V5LHSB2 22“ Full HD', '10.jpg', 'Tốt', 'Tốt', 1990000, 1820000, 40, 18),
+(37, 'Màn hình gương Lenovo ThinkVision S22e-19 22\" VA', '11.jpg', 'Tốt', 'Tốt', 2190000, 2100000, 40, 19),
+(38, 'Màn hình ViewSonic VA2261H-2 22\" FHD', '12.jpg', 'Tốt', 'Tốt', 2390000, 2050000, 40, 13),
+(39, 'Bộ bàn phím  Newmen T260', '13.jpg', 'Tốt', 'Tốt', 280000, 250000, 41, 13),
+(40, 'Bàn phím Gaming DareU LK145 USB', '14.jpg', 'Tốt ', 'Tốt', 480000, 340000, 41, 17),
+(41, 'Bàn phím cơ Gaming DAREU EK87 - Black (Multi-LED)', '15.jpg', 'Tốt ', 'Tốt', 599000, 0, 41, 13),
+(42, 'Chuột Dare-U LM115G - Pink', '16.jpg', 'Tốt ', 'Tốt', 200000, 0, 44, 13),
+(43, 'Chuột Dare-U LM115G Wireless', '17.jpg', 'Tốt ', 'Tốt', 200000, 0, 44, 13),
+(44, 'Chuột Durgod M39', '18.jpg', 'Tốt ', 'Tốt', 190000, 0, 44, 13),
+(45, 'Tai nghe Zidli ZH 7RB', '19.jpg', 'Tốt ', 'Tốt', 490000, 340000, 42, 13),
+(46, 'Tai nghe DareU EH416 RGB', '20.jpg', 'Tốt ', 'Tốt', 590000, 350000, 42, 19),
+(47, 'Tai nghe Rapoo VM150 In-ear', '21.jpg', 'Tốt ', 'Tốt', 569000, 400000, 42, 17),
+(48, 'Ghế Warrior Raider Series WGC206 Black/Red', '22.jpg', 'Tốt ', 'Tốt', 2590000, 2550000, 43, 13),
+(49, 'Ghế Warrior Raider Series WGC206 Black/White', '23.jpg', 'Tốt ', 'Tốt', 2550000, 2500000, 43, 15),
+(50, 'Ghế Warrior Raider Series WGC206 Black', '24.jpg', 'Tốt ', 'Tốt', 2590000, 2500000, 43, 14),
+(51, '', '55.png', 'Tốt ', 'Tốt', 22000000, 21500000, 37, 14);
 
 --
 -- Chỉ mục cho các bảng đã đổ
