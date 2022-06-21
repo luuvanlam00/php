@@ -7,6 +7,7 @@ if(isset($_POST['sua']))
     if(isset($ten)){
         $sql= "update ncc set tenncc='$ten' where mancc='$ma'";
         mysqli_query($link,$sql);
+        $_SESSION['flash_message'] = "Sửa thành công";
        echo '<script>window.location="quantri.php?page_layout=dmncc"</script>';
     }
 }

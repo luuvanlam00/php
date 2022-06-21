@@ -41,57 +41,42 @@ function adddotstring($strNum)
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h1>Quản lý hóa đơn nhập</h1>
-                            <td><a href="quantri.php?page_layout=themcthdn&id_hd=<?php echo $ma ?>"><button type="button" class="btn btn-primary ">Thêm</button></a></td>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
+                            <td style="text-align: center"><a href="quantri.php?page_layout=themcthdn&id_hd=<?php echo $ma ?>"><button type="button" class="btn btn-primary ">Thêm</button></a></td>
+
                         </div>
                         <div class="ibox-content">
 
                             <table class="table table-bordered">
                                 <thead >
                                 <tr>
-                                    <th >ID</th>
-                                    <th >Mã hóa đơn nhập </th>
-                                    <th >Sản phẩm </th>
-                                    <th >Số lượng </th>
-                                    <th >Đơn giá </th>
-                                    <th >Tổng tiền </th>
-                                    <th >Sửa</th>
-                                    <th >Xóa</th>
+                                    <th style="text-align: center">STT</th>
+                                    <th style="text-align: center">Mã hóa đơn nhập </th>
+                                    <th style="text-align: center">Sản phẩm </th>
+                                    <th style="text-align: center">Số lượng </th>
+                                    <th style="text-align: center">Đơn giá </th>
+                                    <th style="text-align: center">Tổng tiền </th>
+                                    <th style="text-align: center">Sửa</th>
+                                    <th style="text-align: center">Xóa</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <?php
+                                    $i=1;
                                     $sql="select * from cthdn  INNER JOIN sanpham ON cthdn.masp=sanpham.masp  where id_hd=$ma";
                                     $result=mysqli_query($link,$sql);
                                     while($row=mysqli_fetch_assoc($result)){
                                     ?>
-                                    <td><?php echo $row['id_cthd']?></td>
-                                    <td><?php echo $row['id_hd']?></td>
-                                    <td><?php echo $row['tensp']?></td>
-                                    <td><?php echo $row['soluong']?></td>
-                                    <td><?php echo adddotstring($row['dongia'])?></td>
-                                    <td><?php echo adddotstring($row['dongia']*$row['soluong']) ?></td>
+                                    <td style="text-align: center"><?php echo $i++?></td>
+                                    <td style="text-align: center"><?php echo $row['id_hd']?></td>
+                                    <td style="text-align: center"><?php echo $row['tensp']?></td>
+                                    <td style="text-align: center"><?php echo $row['soluong']?></td>
+                                    <td style="text-align: center"><?php echo adddotstring($row['dongia'])?></td>
+                                    <td style="text-align: center"><?php echo adddotstring($row['dongia']*$row['soluong']) ?></td>
                                   
-                                    <td><a   href="quantri.php?page_layout=suacthdn&id_cthd=<?php echo $row['id_cthd']?>&id_hd=<?php echo $row['id_hd'] ?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
-                                    <td><a onclick="return xoa();" href="xoacthdn.php?id_cthd=<?php echo $row['id_cthd']?>&id_hd=<?php echo $row['id_hd'] ?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
+                                    <td style="text-align: center"><a   href="quantri.php?page_layout=suacthdn&id_cthd=<?php echo $row['id_cthd']?>&id_hd=<?php echo $row['id_hd'] ?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
+                                    <td style="text-align: center"><a onclick="return xoa();" href="xoacthdn.php?id_cthd=<?php echo $row['id_cthd']?>&id_hd=<?php echo $row['id_hd'] ?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
                                     
                                 </tr>
                                 <?php

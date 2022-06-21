@@ -5,10 +5,12 @@ if(isset($_POST['them']))
   $ten=$_POST['ten'];
 
   if(isset($ten))
-  {       
+  {
     $sql="insert into loaisp(tenloai) values('$ten')";
     $result=mysqli_query($link,$sql);
-    echo '<script>window.location="quantri.php?page_layout=dmsp"</script>'; 
+    $_SESSION['flash_message'] = "Thêm mới thành công";
+    echo '<script>window.location="quantri.php?page_layout=dmsp"</script>';
+
   }
 
 }

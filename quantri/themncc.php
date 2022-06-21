@@ -8,6 +8,7 @@ if(isset($_POST['them']))
   {       
     $sql="insert into ncc(tenncc) values('$ten')";
     $result=mysqli_query($link,$sql);
+      $_SESSION['flash_message'] = "Thêm mới thành công";
     echo '<script>window.location="quantri.php?page_layout=dmncc"</script>'; 
   }
 

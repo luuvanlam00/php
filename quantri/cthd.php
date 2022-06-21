@@ -33,36 +33,19 @@ function adddotstring($strNum)
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h1>Quản lý hóa đơn bán</h1>
-                            
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
+
                         </div>
                         <div class="ibox-content">
 
                             <table class="table table-bordered">
                                 <thead >
                                 <tr>
-                                    <th >ID</th>
-                                    <th >Mã hóa đơn </th>
-                                    <th >Sản phẩm </th>
-                                    <th >Số lượng </th>
-                                    <th >Đơn giá </th>
-                                    <th >Tổng tiền </th>
+                                    <th style="text-align: center">STT</th>
+                                    <th style="text-align: center">Mã hóa đơn </th>
+                                    <th style="text-align: center">Sản phẩm </th>
+                                    <th style="text-align: center">Số lượng </th>
+                                    <th style="text-align: center">Đơn giá </th>
+                                    <th style="text-align: center">Tổng tiền </th>
                                     
 
                                 </tr>
@@ -70,16 +53,17 @@ function adddotstring($strNum)
                                 <tbody>
                                 <tr>
                                     <?php
+                                    $i=1;
                                     $sql="select c.id_cthd,c.id_hd,s.tensp,c.soluong,c.giaban from cthd c INNER JOIN sanpham s ON c.masp=s.masp  where id_hd=$ma";
                                     $result=mysqli_query($link,$sql);
                                     while($row=mysqli_fetch_assoc($result)){
                                     ?>
-                                    <td><?php echo $row['id_cthd']?></td>
-                                    <td><?php echo $row['id_hd']?></td>
-                                    <td><?php echo $row['tensp']?></td>
-                                    <td><?php echo $row['soluong']?></td>
-                                    <td><?php echo adddotstring($row['giaban'])?></td>
-                                    <td><?php echo adddotstring($row['giaban']*$row['soluong']) ?></td>
+                                    <td style="text-align: center"><?php echo $i++?></td>
+                                    <td style="text-align: center"><?php echo $row['id_hd']?></td>
+                                    <td style="text-align: center"><?php echo $row['tensp']?></td>
+                                    <td style="text-align: center"><?php echo $row['soluong']?></td>
+                                    <td style="text-align: center"><?php echo adddotstring($row['giaban'])?></td>
+                                    <td style="text-align: center"><?php echo adddotstring($row['giaban']*$row['soluong']) ?></td>
                                   
                                   
                                     

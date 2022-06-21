@@ -1,7 +1,7 @@
 <?php
 include_once './connect.php';
 $ma = $_GET['masp'];
-$anh= $_GET['anhsp'];
+$anh = $_GET['anhsp'];
 $sql = "select * from sanpham where masp='$ma'";
 $result = mysqli_query($link, $sql);
 $sqllsp = "select * from loaisp ";
@@ -25,13 +25,13 @@ if (isset($_POST['sua'])) {
         $anh_sp = $_FILES['anh_sp']['name'];
         $tmp_name = $_FILES['anh_sp']['tmp_name'];
     }
-   
 
 
     if (isset($ten) && isset($anh_sp) && isset($mota) && isset($ct) && isset($gb) && isset($gkm) && isset($lsp) && isset($ncc)) {
         move_uploaded_file($tmp_name, 'anh/' . $anh_sp);
         $sql = "update sanpham set tensp='$ten',anh='$anh_sp',mota='$mota',chitiet='$ct',giaban='$gb',giakm='$gkm',maloai='$lsp',mancc='$ncc' where masp='$ma'";
         mysqli_query($link, $sql);
+        $_SESSION['flash_message'] = "Sửa thành công";
         echo '<script>window.location="quantri.php?page_layout=sanpham"</script>';
     }
 }
@@ -44,34 +44,42 @@ if (isset($_POST['sua'])) {
     <form method="post" class="form-horizontal" enctype="multipart/form-data">
         <?php
         while ($row = mysqli_fetch_assoc($result)) {
-        ?>
+            ?>
             <div class="form-group"><label class="col-sm-2 control-label">Tên sản phẩm</label>
 
-                <div class="col-sm-10"><input type="text" required="" class="form-control" name="ten" value="<?php echo $row['tensp'] ?>" /></div>
+                <div class="col-sm-10"><input type="text" required="" class="form-control" name="ten"
+                                              value="<?php echo $row['tensp'] ?>"/></div>
             </div>
             <div class="form-group"><label class="col-sm-2 control-label">Ảnh sản phẩm</label>
-            
 
-                <div class="col-sm-10"><input type="file" class="form-control" name="anh_sp" value='<?php echo $row['anh']?>'  /></div>
-                
+
+                <div class="col-sm-10"><input type="file" class="form-control" name="anh_sp"
+                                               id="imgInp"/>
+                    <img id="blah" src="anh/<?php echo $row['anh'] ?>" alt="your image" />
+                </div>
+
             </div>
             <div class="form-group"><label class="col-sm-2 control-label">Mô tả</label>
 
-                <div class="col-sm-10"><textarea require="" class="form-control" name="mota"><?php echo $row['mota'] ?></textarea></div>
+                <div class="col-sm-10"><textarea require="" class="form-control"
+                                                 name="mota"><?php echo $row['mota'] ?></textarea></div>
             </div>
             <div class="hr-line-dashed"></div>
 
             <div class="form-group"><label class="col-sm-2 control-label">Chi tiết</label>
 
-                <div class="col-sm-10"><textarea required="" class="form-control" name="ct"><?php echo $row['chitiet'] ?></textarea></div>
+                <div class="col-sm-10"><textarea required="" class="form-control"
+                                                 name="ct"><?php echo $row['chitiet'] ?></textarea></div>
             </div>
             <div class="form-group"><label class="col-sm-2 control-label">Giá bán </label>
 
-                <div class="col-sm-10"><input type="text" required="" class="form-control" name="gb" value="<?php echo $row['giaban'] ?>" /></div>
+                <div class="col-sm-10"><input type="number" step="0.01" required=""  class="form-control" name="gb"
+                                              value="<?php echo $row['giaban'] ?>"/></div>
             </div>
             <div class="form-group"><label class="col-sm-2 control-label">Giá khuyến mại</label>
 
-                <div class="col-sm-10"><input type="text" required="" class="form-control" name="gkm" value="<?php echo $row['giakm'] ?>" /></div>
+                <div class="col-sm-10"><input type="number" step="0.01" required="" class="form-control" name="gkm"
+                                              value="<?php echo $row['giakm'] ?>"/></div>
             </div>
             <div class="hr-line-dashed"></div>
 
@@ -80,13 +88,13 @@ if (isset($_POST['sua'])) {
                         <?php
 
                         while ($rowlsp = mysqli_fetch_array($resultlsp)) {
-                        ?>
+                            ?>
                             <option <?php
-                                    if ($row['maloai'] == $rowlsp['maloai']) {
-                                        echo 'selected="selected"';
-                                    } ?> value="<?php echo $rowlsp['maloai'] ?>"><?php echo $rowlsp['tenloai'] ?></option>
+                            if ($row['maloai'] == $rowlsp['maloai']) {
+                                echo 'selected="selected"';
+                            } ?> value="<?php echo $rowlsp['maloai'] ?>"><?php echo $rowlsp['tenloai'] ?></option>
 
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
@@ -97,19 +105,19 @@ if (isset($_POST['sua'])) {
                         <?php
 
                         while ($rowncc = mysqli_fetch_array($resultncc)) {
-                        ?>
+                            ?>
                             <option <?php
-                                    if ($row['mancc'] == $rowncc['mancc']) {
-                                        echo 'selected="selected"';
-                                    } ?> value="<?php echo $rowncc['mancc'] ?>"><?php echo $rowncc['tenncc'] ?></option>
+                            if ($row['mancc'] == $rowncc['mancc']) {
+                                echo 'selected="selected"';
+                            } ?> value="<?php echo $rowncc['mancc'] ?>"><?php echo $rowncc['tenncc'] ?></option>
 
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
                 </div>
             </div>
-        <?php
+            <?php
         }
         ?>
 

@@ -59,64 +59,49 @@ function adddotstring($strNum)
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h1>Quản lý hóa đơn nhập</h1>
-                            <td><a href="quantri.php?page_layout=themhdn"><button type="button" class="btn btn-primary ">Thêm mới</button></a></td>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
+                            <td style="text-align: center"><a href="quantri.php?page_layout=themhdn"><button type="button" class="btn btn-primary ">Thêm mới</button></a></td>
+
                         </div>
                         <div class="ibox-content">
 
                             <table class="table table-bordered">
                                 <thead >
                                 <tr>
-                                    <th >ID</th>
-                                    <th >Nhà cung cấp </th>
-                                    <th >Ngày nhập</th>
-                                    <th >Tên người giao</th>
-                                    <th >Tổng tiền </th>
-                                    <th >Nội dung</th>
-                                    <th >Sửa</th>
-                                    <th >Xóa</th>
-                                    <th >Chi tiết</th>
+                                    <th style="text-align: center">STT</th>
+                                    <th style="text-align: center">Nhà cung cấp </th>
+                                    <th style="text-align: center">Ngày nhập</th>
+                                    <th style="text-align: center">Tên người giao</th>
+                                    <th style="text-align: center">Tổng tiền </th>
+                                    <th style="text-align: center">Nội dung</th>
+                                    <th style="text-align: center">Sửa</th>
+                                    <th style="text-align: center">Xóa</th>
+                                    <th style="text-align: center">Chi tiết</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <?php
-                                    $sql="select * from hdn   INNER JOIN ncc ON hdn.mancc=ncc.mancc order by id_hd desc limit $row,$rowpage";
+                                    $i=1;
+                                    $sql="select * from hdn   INNER JOIN ncc ON hdn.mancc=ncc.mancc order by id_hd desc ";
                                     $result=mysqli_query($link,$sql);
                                     while($row=mysqli_fetch_assoc($result)){
                                         $id=$row['id_hd'];
                                     ?>
-                                    <td><?php echo $row['id_hd']?></td>
-                                    <td><?php echo $row['tenncc']?></td>
-                                    <td><?php echo $row['ngaynhap']?></td>
-                                    <td><?php echo $row['ten']?></td>
-                                    <td><?php 
+                                    <td style="text-align: center"><?php echo $i++?></td>
+                                    <td style="text-align: center"><?php echo $row['tenncc']?></td>
+                                    <td style="text-align: center"><?php echo $row['ngaynhap']?></td>
+                                    <td style="text-align: center"><?php echo $row['ten']?></td>
+                                    <td style="text-align: center"><?php 
                                     $sql="SELECT SUM(soluong*dongia) as sl FROM cthdn where id_hd='$id'";
                                     $r=mysqli_query($link,$sql);
                                     $ra=mysqli_fetch_array($r);
                                     echo adddotstring($ra['sl']);
                                     ?></td>
-                                    <td><?php echo $row['noidung']?></td>
+                                    <td style="text-align: center"><?php echo $row['noidung']?></td>
                                   
-                                    <td><a   href="quantri.php?page_layout=suahdn&id_hd=<?php echo $row['id_hd']?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
-                                    <td><a onclick="return xoa();" href="xoahdn.php?id_hd=<?php echo $row['id_hd']?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
-                                    <td><a   href="quantri.php?page_layout=cthdn&id_hd=<?php echo $row['id_hd']?>"><button type="button" class="btn btn-primary btn-sm">Chi tiết</button></a></td>
+                                    <td style="text-align: center"><a   href="quantri.php?page_layout=suahdn&id_hd=<?php echo $row['id_hd']?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
+                                    <td style="text-align: center"><a onclick="return xoa();" href="xoahdn.php?id_hd=<?php echo $row['id_hd']?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
+                                    <td style="text-align: center"><a   href="quantri.php?page_layout=cthdn&id_hd=<?php echo $row['id_hd']?>"><button type="button" class="btn btn-primary btn-sm">Chi tiết</button></a></td>
                                 </tr>
                                 <?php
                                     }
@@ -125,17 +110,7 @@ function adddotstring($strNum)
                             </table>
 
                         </div>
-                        <div class="btn-group" style="float: right;">
-                                    <ul>
-                                  
-                                <?php
-                                echo $listpage;
-                                ?>
-                                
 
-                                    </ul>
-                               
-            </div>
            
                     </div>
                 </div>

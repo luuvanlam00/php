@@ -281,7 +281,7 @@ if (@$_POST['nlpayment']) {
 	$order_description = '';
 	$tax_amount = 0;
 	$fee_shipping = 0;
-	$return_url = 'http://localhost:83/php/';
+	$return_url = 'http://localhost/php/';
 	$cancel_url = urlencode('http://localhost/nganluong.vn/checkoutv3?orderid=' . $order_code);
 
 	$buyer_fullname = $_POST['buyer_fullname'];

@@ -15,6 +15,7 @@ if (isset($_POST['sua'])) {
     $dg = $_POST['dg'];
     $sql = "update cthdn set id_hd='$ma',masp='$sp',soluong='$sl',dongia='$dg' where id_cthd=$mahd";
     mysqli_query($link, $sql);
+    $_SESSION['flash_message'] = "Sửa thành công";
     echo '<script>window.location="quantri.php?page_layout=cthdn&id_hd='.$ma.'"</script>';
 }
 

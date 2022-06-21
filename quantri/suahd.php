@@ -15,6 +15,7 @@ if (isset($_POST['sua'])) {
     $email=$_POST['email'];
     $sql = "update hoadon set thoigian='$ngay',tenkh='$ten',sdt='$sdt',email='$email',diachi='$dc',trangthai='$tt',thanhtoan='$thanhtoan' where id_hd=$ma";
     mysqli_query($link, $sql);
+    $_SESSION['flash_message'] = "Sửa thành công";
     echo '<script>window.location="quantri.php?page_layout=hd"</script>';
 }
 

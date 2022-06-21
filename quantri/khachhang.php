@@ -38,51 +38,36 @@ function xoa(){
               <div class="ibox float-e-margins">
                   <div class="ibox-title">
                       <h1>Quản lý khách hàng</h1>
-                      <td><a href="quantri.php?page_layout=themkh"><button type="button" class="btn btn-primary ">Thêm mới</button></a></td>
-                      <div class="ibox-tools">
-                          <a class="collapse-link">
-                              <i class="fa fa-chevron-up"></i>
-                          </a>
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                              <i class="fa fa-wrench"></i>
-                          </a>
-                          <ul class="dropdown-menu dropdown-user">
-                              <li><a href="#">Config option 1</a>
-                              </li>
-                              <li><a href="#">Config option 2</a>
-                              </li>
-                          </ul>
-                          <a class="close-link">
-                              <i class="fa fa-times"></i>
-                          </a>
-                      </div>
+                      <td style="text-align: center"><a href="quantri.php?page_layout=themkh"><button type="button" class="btn btn-primary ">Thêm mới</button></a></td>
+
                   </div>
                   <div class="ibox-content">
 
                       <table class="table table-bordered">
                           <thead>
                           <tr>
-                              <th>ID</th>
-                              <th>Tên khách hàng</th>
-                              <th>Email</th>
-                              <th>Số điện thoại</th>
-                              <th>Sửa</th>
-                              <th>Xóa</th>
+                              <th style="text-align: center">STT</th>
+                              <th style="text-align: center">Tên khách hàng</th>
+                              <th style="text-align: center">Email</th>
+                              <th style="text-align: center">Số điện thoại</th>
+                              <th style="text-align: center">Sửa</th>
+                              <th style="text-align: center">Xóa</th>
                           </tr>
                           </thead>
                           <tbody>
                           <tr>
                               <?php
-                             $sql="select * from khachhang order by id_kh desc  limit $row,$rowpage";     
+                              $i=1;
+                             $sql="select * from khachhang order by id_kh desc  ";
                             $result=mysqli_query($link,$sql);
                               while($row=mysqli_fetch_array($result)){
                               ?>
-                              <td><?php echo $row['id_kh']?></td>
-                              <td><?php echo $row['tenkh']?></td>
-                              <td><?php echo $row['email']?></td>
-                              <td><?php echo $row['sdt']?></td>
-                              <td><a   href="quantri.php?page_layout=suakh&id_kh=<?php echo $row['id_kh']?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
-                              <td><a onclick="return xoa();" href="xoakh.php?id_kh=<?php echo $row['id_kh']?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
+                              <td style="text-align: center"><?php echo $i++?></td>
+                              <td style="text-align: center"><?php echo $row['tenkh']?></td>
+                              <td style="text-align: center"><?php echo $row['email']?></td>
+                              <td style="text-align: center"><?php echo $row['sdt']?></td>
+                              <td style="text-align: center"><a   href="quantri.php?page_layout=suakh&id_kh=<?php echo $row['id_kh']?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
+                              <td style="text-align: center"><a onclick="return xoa();" href="xoakh.php?id_kh=<?php echo $row['id_kh']?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
                             
                           </tr>
                           <?php
@@ -92,18 +77,7 @@ function xoa(){
                       </table>
 
                   </div>
-                  <div class="btn-group" style="float: right;">
-                                    <ul>
-                               
-                                <?php
-                                echo $listpage;
-                                ?>
-                               
-
-                                    </ul>
-                               
-            </div>
-           
+                 
               </div>
           </div>
 

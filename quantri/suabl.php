@@ -9,6 +9,7 @@ if(isset($_POST['sua']))
     if(isset($ten)&&isset($nd)&&isset($date)){
         $sql= "update binhluan set ten='$ten',noidung='$nd',ngay='$date' where id_bl='$ma'";
         mysqli_query($link,$sql);
+        $_SESSION['flash_message'] = "Sửa thành công";
        echo '<script>window.location="quantri.php?page_layout=binhluan"</script>';
     }
 }

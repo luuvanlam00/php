@@ -19,7 +19,8 @@ if(isset($_POST['dk']))
         $sql="insert into nguoidung values('$ten','$mk','$vaitro')";
         $result=mysqli_query($link,$sql);
         echo '<script>alert("Bạn đã đăng kí thành công!")</script>';
-        
+        echo '<script>window.location="index.php"</script>';
+
     }
   }
  
@@ -58,13 +59,13 @@ if(isset($_POST['dk']))
             <p>Create account to see it in action.</p>
             <form class="m-t" role="form"  method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="ten" placeholder="Name" required="">
+                    <input type="email" class="form-control" name="ten" placeholder="Tài khoản" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="mk" class="form-control" placeholder="Password" required="">
+                    <input type="password" name="mk" class="form-control" placeholder="Mật Khẩu" required="" minlength="6">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="mk2" class="form-control" placeholder="Password" required="">
+                    <input type="password" name="mk2" class="form-control" placeholder="Nhập lại mật khẩu" minlength="6">
                 </div>
               
                 <button type="submit" name="dk" class="btn btn-primary block full-width m-b">Register</button>
@@ -72,7 +73,6 @@ if(isset($_POST['dk']))
                 <p class="text-muted text-center"><small>Already have an account?</small></p>
                 <a class="btn btn-sm btn-white btn-block" href="index.php">Login</a>
             </form>
-            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
         </div>
     </div>
 

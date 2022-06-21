@@ -11,12 +11,23 @@ session_start();
    <link rel="shortcut icon" href="images/favicon.png">
    <title>Welcome </title>
    <link href="shop/css/bootstrap.css" rel="stylesheet">
-   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
    <link href="shop/css/font-awesome.min.css" rel="stylesheet">
    <link rel="stylesheet" href="shop/css/flexslider.css" type="text/css" media="screen" />
    <link href="shop/css/sequence-looptheme.css" rel="stylesheet" media="all" />
    <link href="shop/css/style.css" rel="stylesheet">
    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
+<style>
+    body{
+        font-size: 14px !important;
+    }
+    p,span :not(.old_price, .new_price){
+        font-size: 14px !important;
+    }
+    a{
+        font-size: 14px !important;
+    }
+</style>
 </head>
 
 <body id="home">
@@ -30,36 +41,8 @@ session_start();
                <div class="col-md-10 col-sm-10">
                   <div class="header_top">
                      <div class="row">
-                        <div class="col-md-3">
-                           <ul class="option_nav">
-                              <li class="dorpdown">
-                                 <a href="#">Eng</a>
-                                 <ul class="subnav">
-                                    <li><a href="#">Eng</a></li>
-                                    <li><a href="#">Vns</a></li>
-                                    <li><a href="#">Fer</a></li>
-                                    <li><a href="#">Gem</a></li>
-                                 </ul>
-                              </li>
-                              <li class="dorpdown">
-                                 <a href="#">USD</a>
-                                 <ul class="subnav">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">UKD</a></li>
-                                    <li><a href="#">FER</a></li>
-                                 </ul>
-                              </li>
-                           </ul>
-                        </div>
                         <div class="col-md-6">
-                           <ul class="topmenu">
-                              <li><a href="#">About Us</a></li>
-                              <li><a href="#">News</a></li>
-                              <li><a href="#">Service</a></li>
-                              <li><a href="#">Recruiment</a></li>
-                              <li><a href="#">Media</a></li>
-                              <li><a href="#">Support</a></li>
-                           </ul>
+
                         </div>
                         <?php 
                            if(!isset($_SESSION['user'])){
@@ -74,7 +57,7 @@ session_start();
                         }
                         else{
                            ?>
-                           <div class="col-md-3">
+                           <div class="col-md-6">
                            <ul class="usermenu">
                               <li><a href="" class="log"><?php  echo "Xin chào,  ".$_SESSION['user'] ?></a></li>
                               <li><a href="quantri/Logout.php" ><i class="fa fa-sign-out"></i>Log out</a></li>

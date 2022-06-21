@@ -8,6 +8,7 @@ if (isset($_POST['them'])) {
     if (isset($ten)) {
         $sql = "insert into khachhang(tenkh,email,sdt) values('$ten','$email','$sdt')";
         $result = mysqli_query($link, $sql);
+        $_SESSION['flash_message'] = "Thêm mới thành công";
         echo '<script>window.location="quantri.php?page_layout=khachhang"</script>';
     }
 }

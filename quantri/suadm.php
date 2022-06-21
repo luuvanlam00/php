@@ -7,6 +7,7 @@ if(isset($_POST['sua']))
     if(isset($ten)){
         $sql= "update loaisp set tenloai='$ten' where maloai='$ma'";
         mysqli_query($link,$sql);
+        $_SESSION['flash_message'] = "Sửa thành công";
        echo '<script>window.location="quantri.php?page_layout=dmsp"</script>';
     }
 }

@@ -8,6 +8,7 @@ if (isset($_POST['them'])) {
     $nd= $_POST['nd'];
     $sql = "insert into hdn(mancc,ngaynhap,ten,noidung) values('$ncc','$ngay','$ten','$nd')";
     mysqli_query($link, $sql);
+    $_SESSION['flash_message'] = "Thêm mới thành công";
     echo '<script>window.location="quantri.php?page_layout=hdn"</script>';
     
 }

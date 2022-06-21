@@ -10,6 +10,7 @@ if(isset($_POST['them']))
   {       
     $sql="insert into nguoidung values('$ten','$mk','$vaitro')";
     $result=mysqli_query($link,$sql);
+      $_SESSION['flash_message'] = "Thêm mới thành công";
     echo '<script>window.location="quantri.php?page_layout=dstk"</script>'; 
   }
 

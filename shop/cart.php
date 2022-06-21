@@ -191,9 +191,11 @@ include_once './quantri/connect.php';
       }
       else{
       ?>
-        <h3>Không có sản phẩm trong giỏ hảng!</h3>
-        <a href="index.php?page_layout=product"><button type="button" class="btn btn-primary btn-sm">Quay lại mua hàng</button></a>
-      <?php
+        <div style="height: 530px">
+        <h3 style="margin-bottom: 20px">Không có sản phẩm trong giỏ hảng!</h3>
+            <button class="btn-success"> <a href="index.php?page_layout=product">Quay lại mua hàng</a></button>
+        </div>
+            <?php
       }
       ?>
     </div>

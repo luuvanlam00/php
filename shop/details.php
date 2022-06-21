@@ -131,18 +131,7 @@ function adddotstring($strNum)
                 <a href="shop/themhang.php?masp=<?php echo $r['masp'] ?>"><button class="button">Đặt mua</button>
 
                 </a>
-                <button class="button compare">
-                  <i class="fa fa-exchange">
-                  </i>
-                </button>
-                <button class="button favorite">
-                  <i class="fa fa-heart-o">
-                  </i>
-                </button>
-                <button class="button favorite">
-                  <i class="fa fa-envelope-o">
-                  </i>
-                </button>
+
               </div>
             </div>
             <div class="clearfix">
@@ -384,13 +373,13 @@ function adddotstring($strNum)
           <form method="post" action="index.php?page_layout=details&masp=<?php echo $masp; ?>">
             <div class="form-group">
               <label style="margin-bottom:15px;">Tên</label>
-              <input type="text" name="ten" required="" class="form-control" placeholder="Tên">
+              <input type="text" name="ten" required="" class="form-control" placeholder="Tên" style="border-radius:5px ">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1" style="margin-bottom:15px;">Nội dung</label>
-              <textarea class="form-control" name="binh_luan" required="" placeholder="Nội Dung"></textarea>
+              <textarea class="form-control" name="binh_luan" required="" placeholder="Nội Dung" style="border-radius:5px "></textarea>
             </div>
-            <button type="submit" name="submit" class="btn btn-default">Bình luận</button>
+            <button type="submit" name="submit" class="btn-success">Bình luận</button>
           </form>
         </div>
         <?php
@@ -422,10 +411,10 @@ function adddotstring($strNum)
             while ($row = mysqli_fetch_array($querybl)) {
             ?>
               <ul>
-                <li class="comm-name"><?php echo $row['ten']; ?></li>
-                <li class="comm-time"><?php echo $row['ngay']; ?></li>
-                <li class="comm-details">
-                  <p>
+                <li class="comm-name" style="font-size: 16px;margin-bottom: 10px"><?php echo $row['ten']; ?></li>
+                <li class="comm-time" style="font-size: 14px"><?php echo date("d/m/Y", strtotime($row['ngay'])); ?></li>
+                <li class="comm-details" >
+                  <p style="font-size: 14px">
                     <?php echo $row['noidung']; ?>
                   </p>
                 </li>
@@ -462,12 +451,13 @@ function adddotstring($strNum)
           $re = mysqli_query($link, $s);
           while ($row = mysqli_fetch_assoc($re)) {
           ?>
-            <div class="special-item">
 
+            <div class="special-item" >
+                <a href="index.php?page_layout=details&masp=<?php echo $row['masp'] ?>">
               <div class="product-image">
-                <a href="#">
+
                   <img src="quantri/anh/<?php echo $row['anh'] ?>" alt="" style="width: px; height: 60px;">
-                </a>
+
               </div>
               <div class="product-info">
                 <p>
@@ -480,8 +470,9 @@ function adddotstring($strNum)
                     echo adddotstring($row['giaban']) ?> VND
                 </h5>
               </div>
-
+                </a>
             </div>
+
           <?php
           }
           ?>

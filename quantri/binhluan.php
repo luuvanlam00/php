@@ -39,52 +39,39 @@ function xoa(){
                   <div class="ibox-title">
                       <h1>Quản lý bình luận</h1>
                       
-                      <div class="ibox-tools">
-                          <a class="collapse-link">
-                              <i class="fa fa-chevron-up"></i>
-                          </a>
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                              <i class="fa fa-wrench"></i>
-                          </a>
-                          <ul class="dropdown-menu dropdown-user">
-                              <li><a href="#">Config option 1</a>
-                              </li>
-                              <li><a href="#">Config option 2</a>
-                              </li>
-                          </ul>
-                          <a class="close-link">
-                              <i class="fa fa-times"></i>
-                          </a>
-                      </div>
+
                   </div>
                   <div class="ibox-content">
 
                       <table class="table table-bordered">
                           <thead>
                           <tr>
-                              <th>ID</th>
-                              <th>Mã sản phẩm</th>
-                              <th>Tên </th>
-                              <th>Nội dung </th>
-                              <th>Thời gian </th>
-                              <th>Sửa</th>
-                              <th>Xóa</th>
+                              <th style="text-align: center">STT</th>
+                              <th style="text-align: center">Mã sản phẩm</th>
+                              <th style="text-align: center">Tên sản phâm</th>
+                              <th style="text-align: center">Người dùng  </th>
+                              <th style="text-align: center">Nội dung </th>
+                              <th style="text-align: center">Thời gian </th>
+                              <th style="text-align: center">Sửa</th>
+                              <th style="text-align: center">Xóa</th>
                           </tr>
                           </thead>
                           <tbody>
                           <tr>
                               <?php
-                             $sql="select * from binhluan order by id_bl desc limit $row,$rowpage";     
+                              $i=1;
+                             $sql="select * from binhluan join sanpham on binhluan.masp = sanpham.masp order by binhluan.id_bl desc";
                             $result=mysqli_query($link,$sql);
                               while($row=mysqli_fetch_array($result)){
                               ?>
-                              <td><?php echo $row['id_bl']?></td>
-                              <td><?php echo $row['masp']?></td>
-                              <td><?php echo $row['ten']?></td>
-                              <td><?php echo $row['noidung']?></td>
-                              <td><?php echo $row['ngay']?></td>
-                              <td><a   href="quantri.php?page_layout=suabl&id_bl=<?php echo $row['id_bl']?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
-                              <td><a onclick="return xoa();" href="xoabl.php?id_bl=<?php echo $row['id_bl']?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
+                              <td style="text-align: center"><?php echo $i++?></td>
+                              <td style="text-align: center"><?php echo $row['masp']?></td>
+                              <td style="text-align: center"><?php echo $row['tensp']?></td>
+                              <td style="text-align: center"><?php echo $row['ten']?></td>
+                              <td style="text-align: center"><?php echo $row['noidung']?></td>
+                              <td style="text-align: center"><?php echo $row['ngay']?></td>
+                              <td style="text-align: center"><a   href="quantri.php?page_layout=suabl&id_bl=<?php echo $row['id_bl']?>"><button type="button" class="btn btn-primary btn-sm">Sửa</button></a></td>
+                              <td style="text-align: center"><a onclick="return xoa();" href="xoabl.php?id_bl=<?php echo $row['id_bl']?>"><button type="button" class="btn btn-primary btn-sm">Xóa</button></a></td>
                             
                           </tr>
                           <?php
@@ -94,17 +81,7 @@ function xoa(){
                       </table>
 
                   </div>
-                  <div class="btn-group" style="float: right;">
-                                    <ul>
-                                 
-                                <?php
-                                echo $listpage;
-                                ?>
-                                
 
-                                    </ul>
-                               
-            </div>
            
               </div>
           </div>
